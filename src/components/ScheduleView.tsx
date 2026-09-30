@@ -6,6 +6,8 @@ import EventCard from "./EventCard";
 import VenueLegend from "./VenueLegend";
 import { Search, Filter, Calendar, X } from "lucide-react";
 
+import AddCalendarButton from "./AddCalendarButton";
+
 interface ScheduleViewProps {
   initialSchedule: EventScheduleItem[];
   defaultDay?: number; // 1, 2, 3 or undefined for All
@@ -71,14 +73,28 @@ export default function ScheduleView({
   return (
     <div style={{ padding: "2.5rem 0 4rem" }}>
       <div className="container">
-        {/* Header */}
-        <div style={{ marginBottom: "2rem" }}>
-          <h1 style={{ fontSize: "2.25rem", fontWeight: 900, marginBottom: "0.5rem" }}>
-            <span className="gradient-text">{title}</span>
-          </h1>
-          <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", maxWidth: "720px" }}>
-            {subtitle}
-          </p>
+        {/* Header with prominent calendar CTA */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "20px", marginBottom: "2rem" }}>
+          <div>
+            <h1 style={{ fontSize: "2.25rem", fontWeight: 900, marginBottom: "0.5rem" }}>
+              <span className="gradient-text">{title}</span>
+            </h1>
+            <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", maxWidth: "720px", margin: 0 }}>
+              {subtitle}
+            </p>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "6px", alignItems: "flex-start" }}>
+            <AddCalendarButton
+              label="📅 ADD COMFEST'26 TO GOOGLE CALENDAR"
+              className="btn-primary"
+              id="schedule-header-add-calendar"
+              style={{ fontWeight: 800, padding: "12px 20px" }}
+            />
+            <span style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>
+              One common official calendar &bull; Syncs to phone
+            </span>
+          </div>
         </div>
 
         {/* Day Switcher Tabs */}

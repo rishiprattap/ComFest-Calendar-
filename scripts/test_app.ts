@@ -86,32 +86,27 @@ async function runTests() {
   await db.execute("DELETE FROM participants WHERE id = 'part_duplicate_test'");
   console.log("✓ TEST 3 PASSED: Duplicate name handling requires additional identifier without guessing.");
 
-  // 4. Google Calendar URL & ICS Generation Test
-  console.log("\n[TEST 4] Testing Google Calendar & ICS generation...");
-  const sampleSchedule = lookup1.events?.[0]?.schedule?.[0];
-  if (!sampleSchedule) {
-    throw new Error("Sample schedule missing");
-  }
+  // 4. Official Common COMFEST'26 Google Calendar & Full Feed Test
+  console.log("\n[TEST 4] Testing Official Common COMFEST'26 Google Calendar & Full Feed...");
+  const allSchedules = await getScheduleList();
+  console.log(`  Total Official Schedules in Calendar: ${allSchedules.length}`);
 
-  const gcalUrl = generateGoogleCalendarUrl({
-    eventName: sampleSchedule.event_name,
-    subRound: sampleSchedule.sub_round,
-    date: sampleSchedule.date,
-    startTime: sampleSchedule.start_time,
-    endTime: sampleSchedule.end_time,
-    venue: sampleSchedule.venue,
-    description: sampleSchedule.description,
-  });
-  console.log(`  Generated Google Calendar URL: ${gcalUrl.substring(0, 95)}...`);
-  if (!gcalUrl.includes("calendar.google.com") || !gcalUrl.includes("Asia") || !gcalUrl.includes("TEMPLATE")) {
-    throw new Error("Invalid Google Calendar URL generated!");
-  }
+  const fullIcs = generateIcsContent(allSchedules);
+  const eventCountInIcs = (fullIcs.match(/BEGIN:VEVENT/g) || []).length;
+  console.log(`  Events in Full Official ICS: ${eventCountInIcs}`);
 
-  const ics = generateIcsContent([sampleSchedule], lookup1.participant?.name);
-  if (!ics.includes("BEGIN:VCALENDAR") || !ics.includes("BEGIN:VEVENT") || !ics.includes("SUMMARY:COMFEST'26")) {
-    throw new Error("Invalid ICS content generated!");
+  if (
+    !fullIcs.includes("BEGIN:VCALENDAR") ||
+    !fullIcs.includes("X-WR-CALNAME:COMFEST'26") ||
+    !fullIcs.includes("X-WR-TIMEZONE:Asia/Kolkata") ||
+    !fullIcs.includes("Opening Ceremony") ||
+    !fullIcs.includes("Robowars") ||
+    !fullIcs.includes("Closing Ceremony") ||
+    eventCountInIcs !== allSchedules.length
+  ) {
+    throw new Error("Invalid Official COMFEST'26 ICS calendar generated!");
   }
-  console.log("✓ TEST 4 PASSED: Google Calendar URL & RFC-compliant ICS generation verified.");
+  console.log("✓ TEST 4 PASSED: One Common COMFEST'26 official calendar with Asia/Kolkata verified.");
 
   // 5. Admin Authentication & Session Security Test
   console.log("\n[TEST 5] Testing Admin Authentication & Server-Side Session...");

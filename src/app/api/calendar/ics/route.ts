@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getScheduleItemById, lookupParticipantEvents } from "@/lib/db";
+import { getScheduleItemById, getScheduleList } from "@/lib/db";
 import { generateIcsContent } from "@/lib/calendar";
 import { EventScheduleItem } from "@/lib/types";
 
@@ -9,11 +9,9 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const scheduleId = searchParams.get("scheduleId");
-    const name = searchParams.get("name");
-    const identifier = searchParams.get("identifier") || undefined;
 
     let eventsToExport: EventScheduleItem[] = [];
-    let filename = "comfest26-schedule.ics";
+    let filename = "comfest26-official.ics";
 
     if (scheduleId) {
       const item = await getScheduleItemById(scheduleId);
@@ -22,47 +20,18 @@ export async function GET(request: NextRequest) {
       }
       eventsToExport = [item];
       filename = `comfest26-${item.event_name.toLowerCase().replace(/[^a-z0-9]/g, "-")}.ics`;
-    } else if (name) {
-      const lookup = await lookupParticipantEvents(name, identifier);
-      if (lookup.status !== "found" || !lookup.events) {
-        return new NextResponse("Participant not found or multiple matches", { status: 400 });
-      }
-
-      for (const ev of lookup.events) {
-        if (ev.schedule && ev.schedule.length > 0) {
-          eventsToExport.push(...ev.schedule);
-        }
-      }
-
-      // Include common events (Opening Ceremony, Lunch, Closing Ceremony, etc.)
-      const includeCommon = searchParams.get("includeCommon");
-      if (includeCommon !== "false" && lookup.commonEvents) {
-        const existingIds = new Set(eventsToExport.map((e) => e.id));
-        for (const commonItem of lookup.commonEvents) {
-          if (!existingIds.has(commonItem.id)) {
-            eventsToExport.push(commonItem);
-          }
-        }
-      }
-
-      // Sort chronologically by day and start_time
-      eventsToExport.sort((a, b) => {
-        if (a.day !== b.day) return a.day - b.day;
-        return a.start_time.localeCompare(b.start_time);
-      });
-
-      const safeName = lookup.participant?.name.toLowerCase().replace(/[^a-z0-9]/g, "-") || "my-events";
-      filename = `comfest26-${safeName}.ics`;
     } else {
-      return new NextResponse("Missing query parameters (scheduleId or name)", { status: 400 });
+      // Default: Return the entire official COMFEST'26 schedule (Days 1–3 + online)
+      eventsToExport = await getScheduleList();
     }
 
-    const icsString = generateIcsContent(eventsToExport, name || undefined);
+    const icsString = generateIcsContent(eventsToExport);
 
     return new NextResponse(icsString, {
       headers: {
         "Content-Type": "text/calendar; charset=utf-8",
         "Content-Disposition": `attachment; filename="${filename}"`,
+        "Cache-Control": "public, max-age=180, stale-while-revalidate=300",
       },
     });
   } catch (error: any) {

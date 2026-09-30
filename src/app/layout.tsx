@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Link from "next/link";
-import { Calendar, Search, Shield, Clock, ExternalLink } from "lucide-react";
+import { Shield, ExternalLink } from "lucide-react";
+import AddCalendarButton from "@/components/AddCalendarButton";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -9,13 +10,14 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "COMFEST'26 | Official Event Schedule & Calendar",
+  title: "COMFEST'26 | Official Event Schedule & Google Calendar",
   description:
-    "Official schedule and calendar for COMFEST'26 (15–17 October 2026), hosted by the Jaipuria Computer Club (JCC), Seth Anandram Jaipuria School, Kanpur. Search your registered events and add to Google Calendar.",
+    "Official schedule and common Google Calendar for COMFEST'26 (15–17 October 2026), hosted by the Jaipuria Computer Club (JCC), Seth Anandram Jaipuria School, Kanpur. Subscribe to the official calendar and sync to your phone.",
   keywords: [
     "Comfest 26",
     "Comfest 2026",
     "Comfest schedule",
+    "Comfest Google Calendar",
     "Jaipuria Computer Club",
     "Seth Anandram Jaipuria School Kanpur",
     "Robowars",
@@ -58,17 +60,14 @@ export default function RootLayout({
               <li className="nav-item">
                 <Link href="/day-3" id="nav-link-day3">Day 3</Link>
               </li>
-              <li className="nav-item">
-                <Link href="/my-events" id="nav-link-my-events" style={{ color: "var(--accent-cyan)", fontWeight: 700 }}>
-                  <Search size={15} /> Find My Events
-                </Link>
-              </li>
             </ul>
 
             <div className="nav-cta">
-              <Link href="/my-events" className="btn-primary btn-sm" id="nav-cta-my-events">
-                <Calendar size={15} /> My Schedule
-              </Link>
+              <AddCalendarButton
+                label="Add to Calendar"
+                className="btn-primary btn-sm"
+                id="nav-cta-add-calendar"
+              />
               <Link href="/admin" className="btn-secondary btn-sm" id="nav-admin-link" title="Admin Portal">
                 <Shield size={14} /> Admin
               </Link>
@@ -99,7 +98,6 @@ export default function RootLayout({
                 <p><Link href="/day-1">Day 1 (15 October 2026)</Link></p>
                 <p><Link href="/day-2">Day 2 (16 October 2026)</Link></p>
                 <p><Link href="/day-3">Day 3 (17 October 2026)</Link></p>
-                <p><Link href="/my-events">Find My Events</Link></p>
                 <p><Link href="/admin">Coordinator / Admin Login</Link></p>
               </div>
 

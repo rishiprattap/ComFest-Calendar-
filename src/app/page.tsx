@@ -3,7 +3,8 @@ import Countdown from "@/components/Countdown";
 import VenueLegend from "@/components/VenueLegend";
 import { getScheduleList } from "@/lib/db";
 import EventCard from "@/components/EventCard";
-import { Calendar, Search, ArrowRight, Zap, Trophy, Cpu, Sparkles } from "lucide-react";
+import AddCalendarButton from "@/components/AddCalendarButton";
+import { Calendar, ArrowRight, Sparkles, MapPin } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -11,50 +12,84 @@ export default async function HomePage() {
   // Fetch Day 1 flagship events for quick preview
   const day1Items = await getScheduleList({ day: 1 });
   const featured = day1Items.filter((i) =>
-    ["CF Broadway", "Code Baton", "Strings Attached", "Opening Ceremony"].includes(i.event_name)
+    ["Opening Ceremony", "Code Baton", "CF Broadway", "Strings Attached"].includes(i.event_name)
   );
 
   return (
     <div>
       {/* HERO SECTION */}
       <section className="hero">
-        <div className="container">
-          <div className="hero-pill">
+        <div className="container" style={{ textAlign: "center", maxWidth: "850px" }}>
+          <div className="hero-pill" style={{ margin: "0 auto 1.25rem" }}>
             <Sparkles size={14} /> JAIPURIA COMPUTER CLUB PRESENTS • 27TH EDITION
           </div>
 
-          <h1 className="hero-title">
+          <h1 className="hero-title" style={{ marginBottom: "0.75rem" }}>
             <span className="gradient-text">COMFEST&apos;26</span>
-            <br />
-            <span className="gradient-text-alt" style={{ fontSize: "0.65em", fontWeight: 700 }}>
-              OFFICIAL EVENT SCHEDULE & CALENDAR
-            </span>
           </h1>
 
-          <p className="hero-subtitle">
-            15–17 October 2026 &bull; Seth Anandram Jaipuria School, Kanpur.
-            Explore the official timetable, search your registered events, and sync your personalized itinerary to Google Calendar with a single click.
-          </p>
+          <div style={{ fontSize: "1.35rem", fontWeight: 800, color: "#fff", letterSpacing: "1px", marginBottom: "0.5rem" }}>
+            15–17 OCTOBER 2026
+          </div>
 
-          <div className="hero-cta">
-            <Link href="/my-events" className="btn-primary" id="home-cta-find-events">
-              <Search size={18} /> Find My Events
-            </Link>
-            <Link href="/schedule" className="btn-secondary" id="home-cta-full-schedule">
-              <Calendar size={18} /> View Full Timetable
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "var(--accent-cyan)", fontSize: "1.05rem", fontWeight: 600, marginBottom: "2rem" }}>
+            <MapPin size={18} /> Seth Anandram Jaipuria School, Kanpur
+          </div>
+
+          {/* MAIN PROMINENT CTA ACTIONS */}
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "14px", marginBottom: "1rem" }}>
+            <AddCalendarButton
+              label="📅 ADD TO GOOGLE CALENDAR"
+              className="btn-primary"
+              id="hero-add-to-google-calendar"
+              style={{
+                fontSize: "1.15rem",
+                padding: "16px 36px",
+                fontWeight: 900,
+                letterSpacing: "0.5px",
+                boxShadow: "0 0 35px rgba(0, 240, 255, 0.4)",
+              }}
+            />
+
+            <Link
+              href="/schedule"
+              className="btn-secondary"
+              id="hero-view-full-schedule"
+              style={{ fontSize: "1rem", padding: "10px 24px", color: "var(--text-main)" }}
+            >
+              View Full Schedule <ArrowRight size={16} />
             </Link>
           </div>
+
+          {/* MANDATORY EXPLANATION BELOW BUTTON */}
+          <p
+            style={{
+              color: "var(--text-muted)",
+              fontSize: "0.98rem",
+              maxWidth: "540px",
+              margin: "0 auto 2.5rem",
+              lineHeight: "1.6",
+            }}
+            id="hero-calendar-phone-sync-note"
+          >
+            &ldquo;Add the official COMFEST&apos;26 calendar to see the complete event schedule on your phone.&rdquo;
+          </p>
 
           <Countdown />
         </div>
       </section>
 
-      {/* DAY QUICK JUMP SECTION */}
+      {/* EXPLORE BY FESTIVAL DAYS */}
       <section style={{ padding: "3rem 0" }}>
         <div className="container">
-          <h2 style={{ fontSize: "1.75rem", fontWeight: 800, marginBottom: "1.5rem", textAlign: "center" }}>
-            Explore By <span className="gradient-text">Festival Days</span>
-          </h2>
+          <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+            <h2 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "0.5rem" }}>
+              Explore By <span className="gradient-text">Festival Days</span>
+            </h2>
+            <p style={{ color: "var(--text-muted)", fontSize: "1rem" }}>
+              Official Timetable from pages 25–27 of the COMFEST&apos;26 brochure
+            </p>
+          </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
             <Link href="/day-1" className="glass-card" style={{ textDecoration: "none" }} id="card-jump-day-1">
@@ -62,7 +97,9 @@ export default async function HomePage() {
                 <span className="badge badge-flagship">15 October 2026</span>
                 <ArrowRight size={16} style={{ color: "var(--accent-cyan)" }} />
               </div>
-              <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#fff", marginBottom: "8px" }}>DAY 1</h3>
+              <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#fff", marginBottom: "8px" }}>
+                DAY 1 — 15 OCTOBER
+              </h3>
               <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", marginBottom: "14px" }}>
                 Inauguration &bull; Orientation &bull; Code Baton &bull; Strings Attached &bull; CF Broadway Mega Theatre
               </p>
@@ -76,7 +113,9 @@ export default async function HomePage() {
                 <span className="badge badge-technical">16 October 2026</span>
                 <ArrowRight size={16} style={{ color: "var(--accent-cyan)" }} />
               </div>
-              <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#fff", marginBottom: "8px" }}>DAY 2</h3>
+              <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#fff", marginBottom: "8px" }}>
+                DAY 2 — 16 OCTOBER
+              </h3>
               <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", marginBottom: "14px" }}>
                 Robowars &bull; Hackom (24-Hour) &bull; Junk&apos;s The Punk &bull; Mechanoid &bull; Invert Oxford
               </p>
@@ -90,7 +129,9 @@ export default async function HomePage() {
                 <span className="badge badge-literary">17 October 2026</span>
                 <ArrowRight size={16} style={{ color: "var(--accent-cyan)" }} />
               </div>
-              <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#fff", marginBottom: "8px" }}>DAY 3</h3>
+              <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#fff", marginBottom: "8px" }}>
+                DAY 3 — 17 OCTOBER
+              </h3>
               <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", marginBottom: "14px" }}>
                 Hackom Presentations &bull; Draft 1.0 &bull; Investor Incubator &bull; Gambit &bull; Grand Closing Ceremony
               </p>
@@ -121,9 +162,16 @@ export default async function HomePage() {
                 Festival Highlights
               </h2>
             </div>
-            <Link href="/schedule" className="btn-secondary btn-sm" id="btn-view-all-schedule">
-              Browse All 50+ Events <ArrowRight size={14} />
-            </Link>
+            <div style={{ display: "flex", gap: "10px" }}>
+              <AddCalendarButton
+                label="📅 Add Full Calendar"
+                className="btn-primary btn-sm"
+                id="btn-highlights-add-calendar"
+              />
+              <Link href="/schedule" className="btn-secondary btn-sm" id="btn-view-all-schedule">
+                Browse All Events <ArrowRight size={14} />
+              </Link>
+            </div>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "20px" }}>
@@ -148,29 +196,35 @@ export default async function HomePage() {
               <div style={{ display: "flex", gap: "24px" }}>
                 <div>
                   <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--accent-cyan)", fontFamily: "var(--font-mono)" }}>35+</div>
-                  <div style={{ fontSize: "0.8rem", color: "var(--text-dim)", textTransform: "uppercase" }}>Events</div>
+                  <div style={{ fontSize: "0.85rem", color: "var(--text-dim)" }}>Events</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--accent-cyan)", fontFamily: "var(--font-mono)" }}>3</div>
-                  <div style={{ fontSize: "0.8rem", color: "var(--text-dim)", textTransform: "uppercase" }}>High-Octane Days</div>
+                  <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--accent-purple)", fontFamily: "var(--font-mono)" }}>3 Days</div>
+                  <div style={{ fontSize: "0.85rem", color: "var(--text-dim)" }}>Oct 15–17, 2026</div>
                 </div>
                 <div>
-                  <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--accent-cyan)", fontFamily: "var(--font-mono)" }}>6</div>
-                  <div style={{ fontSize: "0.8rem", color: "var(--text-dim)", textTransform: "uppercase" }}>Official Venues</div>
+                  <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--accent-green)", fontFamily: "var(--font-mono)" }}>1000+</div>
+                  <div style={{ fontSize: "0.85rem", color: "var(--text-dim)" }}>Delegates</div>
                 </div>
               </div>
             </div>
 
-            <div className="glass-card" style={{ border: "1px solid var(--border-glow)", padding: "2.25rem" }}>
-              <h3 style={{ fontSize: "1.3rem", fontWeight: 700, color: "#fff", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "10px" }}>
-                <Zap size={20} style={{ color: "var(--accent-cyan)" }} /> Are You a Registered Participant?
+            <div className="glass-card" style={{ padding: "2rem", textAlign: "center", border: "1px solid var(--border-glow)" }}>
+              <div style={{ fontSize: "1rem", fontWeight: 800, color: "var(--accent-cyan)", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "1px" }}>
+                Official Schedule Integration
+              </div>
+              <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#fff", marginBottom: "12px" }}>
+                Stay Synchronized in Real-Time
               </h3>
-              <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", marginBottom: "1.5rem", lineHeight: "1.6" }}>
-                Look up your personalized schedule right away! Simply enter your registered name to view ONLY the events you are competing in, along with exact time slots, venues, and Google Calendar sync.
+              <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", marginBottom: "1.5rem", lineHeight: "1.6" }}>
+                All participants, teachers, and coordinators subscribe to the same unified COMFEST&apos;26 Google Calendar. Changes made by administrators automatically sync to your phone.
               </p>
-              <Link href="/my-events" className="btn-primary" style={{ width: "100%" }}>
-                <Search size={16} /> Open &quot;Find My Events&quot;
-              </Link>
+              <AddCalendarButton
+                label="📅 ADD COMFEST'26 TO GOOGLE CALENDAR"
+                className="btn-primary"
+                id="btn-about-add-calendar"
+                style={{ width: "100%", justifyContent: "center" }}
+              />
             </div>
           </div>
         </div>
