@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Link from "next/link";
-import { Shield, ExternalLink } from "lucide-react";
-import AddCalendarButton from "@/components/AddCalendarButton";
+import { ExternalLink } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "COMFEST'26 | Official Event Schedule & Google Calendar",
   description:
-    "Official schedule and common Google Calendar for COMFEST'26 (15–17 October 2026), hosted by the Jaipuria Computer Club (JCC), Seth Anandram Jaipuria School, Kanpur. Subscribe to the official calendar and sync to your phone.",
+    "Official schedule and Google Calendar for COMFEST'26 (15–17 October 2026), hosted by Jaipuria Computer Club (JCC), Seth Anandram Jaipuria School, Kanpur. Add events to Google Calendar and view timings.",
   keywords: [
     "Comfest 26",
     "Comfest 2026",
@@ -37,43 +37,7 @@ export default function RootLayout({
         <link rel="icon" href="/dps-bk.svg" type="image/svg+xml" />
       </head>
       <body>
-        <nav className="navbar" id="site-navigation" aria-label="Main Navigation">
-          <div className="container nav-inner">
-            <Link href="/" className="nav-brand" id="nav-brand-logo">
-              <span className="brand-badge">JCC</span>
-              <span className="brand-text">COMFEST&apos;26</span>
-            </Link>
-
-            <ul className="nav-links" id="main-nav-links">
-              <li className="nav-item">
-                <Link href="/" id="nav-link-home">Home</Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/schedule" id="nav-link-schedule">Full Schedule</Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/day-1" id="nav-link-day1">Day 1</Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/day-2" id="nav-link-day2">Day 2</Link>
-              </li>
-              <li className="nav-item">
-                <Link href="/day-3" id="nav-link-day3">Day 3</Link>
-              </li>
-            </ul>
-
-            <div className="nav-cta">
-              <AddCalendarButton
-                label="Add to Calendar"
-                className="btn-primary btn-sm"
-                id="nav-cta-add-calendar"
-              />
-              <Link href="/admin" className="btn-secondary btn-sm" id="nav-admin-link" title="Admin Portal">
-                <Shield size={14} /> Admin
-              </Link>
-            </div>
-          </div>
-        </nav>
+        <Navbar />
 
         <main id="main-content">{children}</main>
 
@@ -95,6 +59,7 @@ export default function RootLayout({
               <div className="footer-col">
                 <h4>Quick Links</h4>
                 <p><Link href="/schedule">Full Event Schedule</Link></p>
+                <p><Link href="/my-events">My Events (Participant Search)</Link></p>
                 <p><Link href="/day-1">Day 1 (15 October 2026)</Link></p>
                 <p><Link href="/day-2">Day 2 (16 October 2026)</Link></p>
                 <p><Link href="/day-3">Day 3 (17 October 2026)</Link></p>

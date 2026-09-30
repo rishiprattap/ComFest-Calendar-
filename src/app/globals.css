@@ -730,34 +730,189 @@ a {
   gap: 12px;
 }
 
-/* Responsive tweaks */
+/* Mobile Nav Controls */
+.mobile-nav-controls {
+  display: none;
+}
+
+/* Comprehensive Responsive System */
 @media (max-width: 900px) {
   .nav-links {
     display: none;
   }
-  .nav-mobile-btn {
-    display: block;
+  .nav-cta {
+    display: none;
+  }
+  .mobile-nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+  .nav-inner {
+    height: 64px;
   }
   .countdown-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .footer-inner {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2.4rem, 10vw, 3.5rem);
+  }
+  .day-tabs {
+    gap: 6px;
+    padding-bottom: 8px;
+  }
+  .day-tab {
+    padding: 8px 14px;
+    font-size: 0.88rem;
+    min-height: 44px;
   }
 }
 
 @media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
   .container {
     padding: 0 1rem;
+    max-width: 100vw;
+    box-sizing: border-box;
   }
+
   .hero {
-    padding: 3.5rem 0 2rem;
+    padding: 2.5rem 0 1.5rem;
   }
+
+  .hero-pill {
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    letter-spacing: -1px;
+  }
+
+  /* Force single column for cards on mobile - prevents overflow */
+  #schedule-items-grid,
+  .featured-grid,
+  div[style*="gridTemplateColumns: repeat(auto-fit, minmax(320px, 1fr))"],
+  div[style*="gridTemplateColumns: repeat(auto-fit, minmax(280px, 1fr))"],
+  div[style*="gridTemplateColumns: repeat(auto-fit, minmax(300px, 1fr))"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .countdown-grid {
+    gap: 8px;
+  }
+
+  .countdown-item {
+    padding: 12px 8px;
+  }
+
   .countdown-val {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
+
+  .countdown-lbl {
+    font-size: 0.72rem;
+  }
+
   .filter-bar {
     flex-direction: column;
     align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .search-input-wrap {
+    min-width: 100%;
+  }
+
+  .filter-selects {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .filter-selects > div,
+  .select-custom {
+    width: 100%;
+  }
+
+  .select-custom {
+    min-height: 44px;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-cal {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  .card-actions {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .event-card {
+    padding: 1.15rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+/* Extra small devices (320px - 380px: iPhone SE, Galaxy S, etc.) */
+@media (max-width: 380px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .nav-brand .brand-text {
+    font-size: 1.15rem;
+  }
+
+  .btn-primary {
+    font-size: 0.88rem;
+    padding: 10px 14px;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .countdown-val {
+    font-size: 1.4rem;
+  }
+
+  .card-top {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+
+  .card-title {
+    font-size: 1.15rem !important;
   }
 }

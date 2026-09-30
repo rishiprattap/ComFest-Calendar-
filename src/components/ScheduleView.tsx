@@ -92,7 +92,7 @@ export default function ScheduleView({
               style={{ fontWeight: 800, padding: "12px 20px" }}
             />
             <span style={{ fontSize: "0.82rem", color: "var(--text-dim)" }}>
-              One common official calendar &bull; Syncs to phone
+              Official Festival Schedule &bull; Add to Google Calendar
             </span>
           </div>
         </div>

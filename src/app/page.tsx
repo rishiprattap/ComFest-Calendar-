@@ -214,10 +214,10 @@ export default async function HomePage() {
                 Official Schedule Integration
               </div>
               <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#fff", marginBottom: "12px" }}>
-                Stay Synchronized in Real-Time
+                Get the COMFEST&apos;26 Calendar
               </h3>
               <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", marginBottom: "1.5rem", lineHeight: "1.6" }}>
-                All participants, teachers, and coordinators subscribe to the same unified COMFEST&apos;26 Google Calendar. Changes made by administrators automatically sync to your phone.
+                Download the official festival calendar file to add the complete event schedule to your Google Calendar app.
               </p>
               <AddCalendarButton
                 label="📅 ADD COMFEST'26 TO GOOGLE CALENDAR"

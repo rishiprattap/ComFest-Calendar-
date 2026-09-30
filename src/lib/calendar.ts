@@ -56,7 +56,7 @@ export function generateIcsContent(
     "PRODID:-//Jaipuria Computer Club//COMFEST'26 Official Schedule//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
-    `X-WR-CALNAME:COMFEST'26`,
+    `X-WR-CALNAME:${customTitle || "COMFEST'26"}`,
     `X-WR-CALDESC:Official Event Schedule for COMFEST'26 (15–17 October 2026) at Seth Anandram Jaipuria School, Kanpur. Organized by Jaipuria Computer Club (JCC).`,
     "X-WR-TIMEZONE:Asia/Kolkata",
     "BEGIN:VTIMEZONE",
