@@ -19,6 +19,10 @@ import {
   Clock,
   MapPin,
   CheckCircle2,
+  Copy,
+  Check,
+  Zap,
+  HelpCircle,
 } from "lucide-react";
 import { generateGoogleCalendarUrl } from "@/lib/calendar";
 
@@ -32,6 +36,7 @@ export default function MyEventsPage() {
   const [result, setResult] = useState<ParticipantLookupResult | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [showMultiGCalModal, setShowMultiGCalModal] = useState(false);
+  const [copiedFeed, setCopiedFeed] = useState(false);
 
   // Filter tabs
   const [activeTab, setActiveTab] = useState<ViewTab>("all");
@@ -170,6 +175,41 @@ export default function MyEventsPage() {
     if (modalTab === "common") return commonSchedules;
     return unifiedTimeline.map((u) => u.item);
   }, [modalTab, registeredSchedules, commonSchedules, unifiedTimeline]);
+
+  // Copy Calendar Feed Subscription URL
+  const getFeedUrl = () => {
+    if (typeof window === "undefined" || !result?.participant) return "";
+    return `${window.location.origin}/api/calendar/ics?name=${encodeURIComponent(result.participant.name)}`;
+  };
+
+  const handleCopyFeed = () => {
+    const url = getFeedUrl();
+    navigator.clipboard.writeText(url);
+    setCopiedFeed(true);
+    setTimeout(() => setCopiedFeed(false), 2500);
+  };
+
+  // Open all tabs in browser
+  const handleOpenAllTabs = () => {
+    const count = modalSchedules.length;
+    if (!window.confirm(`This will open ${count} individual Google Calendar event tabs in your browser. Do you want to continue?`)) {
+      return;
+    }
+    modalSchedules.forEach((sch, i) => {
+      const url = generateGoogleCalendarUrl({
+        eventName: sch.event_name,
+        subRound: sch.sub_round,
+        date: sch.date,
+        startTime: sch.start_time,
+        endTime: sch.end_time,
+        venue: sch.venue,
+        description: sch.description,
+      });
+      setTimeout(() => {
+        window.open(url, "_blank");
+      }, i * 250);
+    });
+  };
 
   return (
     <div style={{ padding: "3rem 0 5rem" }}>
@@ -380,6 +420,10 @@ export default function MyEventsPage() {
                   >
                     <Download size={14} /> Download Complete Calendar (.ICS)
                   </a>
+
+                  <div style={{ fontSize: "0.78rem", color: "var(--accent-cyan)", textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center", gap: "4px" }}>
+                    <Zap size={13} /> Bulk 1-step Google Calendar import available
+                  </div>
                 </div>
               </div>
             </div>
@@ -481,7 +525,7 @@ export default function MyEventsPage() {
                   ⭐ My Registered Event ({result.events?.length || 0} competitions)
                 </span>
                 <span style={{ display: "flex", alignItems: "center", gap: "6px", color: "#c084fc", fontWeight: 700 }}>
-                  <span style={{ display: "inline-block", width: "10px", height: "10px", borderRadius: "50%", background: "#c084fc", boxShadow: "0 0 8px #c084fc)" }} />
+                  <span style={{ display: "inline-block", width: "10px", height: "10px", borderRadius: "50%", background: "#c084fc", boxShadow: "0 0 8px #c084fc" }} />
                   🌟 Common Festival Event (Opening Ceremony, Lunch, Closing, etc.)
                 </span>
               </div>
@@ -562,7 +606,7 @@ export default function MyEventsPage() {
             )}
 
             {/* REGISTERED COMPETITIONS BREAKDOWN OVERVIEW */}
-            <div style={{ marginTop: "4rem", paddingTop: "2.5rem", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+            <div style={{ marginTop: "4rem", paddingTop: "2.5rem", borderTop: "1px solid rgba(255,255,200,0.08)" }}>
               <div style={{ marginBottom: "1.5rem" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
                   <Trophy size={20} style={{ color: "var(--accent-amber)" }} />
@@ -642,9 +686,9 @@ export default function MyEventsPage() {
             <div
               className="glass-card"
               style={{
-                maxWidth: "650px",
+                maxWidth: "680px",
                 width: "100%",
-                maxHeight: "90vh",
+                maxHeight: "92vh",
                 overflowY: "auto",
                 border: "1px solid var(--border-glow)",
                 padding: "2rem",
@@ -654,7 +698,7 @@ export default function MyEventsPage() {
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Calendar size={22} style={{ color: "var(--accent-cyan)" }} />
                   <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#fff", margin: 0 }}>
-                    Add Events to Google Calendar
+                    Add All Events to Google Calendar
                   </h3>
                 </div>
                 <button
@@ -666,152 +710,265 @@ export default function MyEventsPage() {
                 </button>
               </div>
 
-              <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", marginBottom: "1.25rem", lineHeight: "1.5" }}>
-                Keep your festival timetable organized! You can download your entire schedule (.ICS) to sync all sessions at once, or add events individually to Google Calendar below:
-              </p>
-
-              {/* 1-Click All Events Download Banner */}
+              {/* HIGHLIGHT: HOW TO ADD ALL AT ONCE (NO 1-BY-1 CLICKS NEEDED!) */}
               <div
                 style={{
-                  background: "rgba(0, 240, 255, 0.08)",
-                  border: "1px solid rgba(0, 240, 255, 0.3)",
+                  background: "linear-gradient(135deg, rgba(0, 240, 255, 0.12) 0%, rgba(168, 85, 247, 0.12) 100%)",
+                  border: "1px solid var(--accent-cyan)",
+                  borderRadius: "var(--radius-md)",
+                  padding: "1.5rem",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+                  <Zap size={20} style={{ color: "var(--accent-cyan)" }} />
+                  <h4 style={{ fontSize: "1.1rem", fontWeight: 800, color: "#fff", margin: 0 }}>
+                    How to Add ALL {unifiedTimeline.length} Events at Once
+                  </h4>
+                </div>
+
+                <p style={{ fontSize: "0.88rem", color: "var(--text-muted)", marginBottom: "14px", lineHeight: "1.5" }}>
+                  Google Calendar does not require adding each event individually! You can import all events simultaneously in <strong>2 simple steps</strong>:
+                </p>
+
+                {/* 2-Step Action Box */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "12px" }}>
+                  <a
+                    href={`/api/calendar/ics?name=${encodeURIComponent(result.participant.name)}`}
+                    className="btn-primary"
+                    style={{ justifyContent: "center", fontSize: "0.9rem", padding: "12px 14px", textAlign: "center" }}
+                    download
+                    id="btn-modal-download-all-ics"
+                  >
+                    <Download size={16} /> 1. Download .ICS File
+                  </a>
+
+                  <a
+                    href="https://calendar.google.com/calendar/u/0/r/settings/export"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary"
+                    style={{
+                      justifyContent: "center",
+                      fontSize: "0.9rem",
+                      padding: "12px 14px",
+                      textAlign: "center",
+                      borderColor: "var(--accent-cyan)",
+                      color: "#fff",
+                    }}
+                    id="btn-open-google-calendar-import"
+                  >
+                    <ExternalLink size={16} /> 2. Open Google Import &rarr;
+                  </a>
+                </div>
+
+                <div style={{ background: "rgba(0,0,0,0.3)", borderRadius: "var(--radius-sm)", padding: "10px 12px", fontSize: "0.82rem", color: "var(--text-muted)", lineHeight: "1.4" }}>
+                  <strong style={{ color: "#fff" }}>Quick Guide:</strong> Click button 1 to download the file. Then click button 2 to open Google Calendar Settings &rarr; choose your downloaded file &rarr; click <strong>&quot;Import&quot;</strong>. All your competition rounds, lunch, and ceremonies will immediately appear in your Google Calendar!
+                </div>
+              </div>
+
+              {/* METHOD 2: LIVE CALENDAR FEED (AUTO-UPDATES) */}
+              <div
+                style={{
+                  background: "rgba(255, 255, 255, 0.03)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
                   borderRadius: "var(--radius-md)",
                   padding: "1.25rem",
                   marginBottom: "1.5rem",
-                  textAlign: "center",
                 }}
               >
-                <div style={{ fontWeight: 800, color: "var(--accent-cyan)", marginBottom: "4px", fontSize: "1rem" }}>
-                  ⚡ Recommended: 1-Click Complete Festival Sync
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
+                  <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#fff" }}>
+                    Alternative: Subscribe via Live Feed URL
+                  </div>
+                  <span className="badge badge-general" style={{ fontSize: "0.72rem" }}>Auto-Updates</span>
                 </div>
-                <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "12px" }}>
-                  Includes all {registeredSchedules.length} registered competition rounds PLUS all {commonSchedules.length} common ceremonies and meals.
+                <p style={{ fontSize: "0.84rem", color: "var(--text-muted)", marginBottom: "10px" }}>
+                  Syncs your timetable automatically and refreshes if organizers update timings or venues.
                 </p>
-                <a
-                  href={`/api/calendar/ics?name=${encodeURIComponent(result.participant.name)}`}
-                  className="btn-primary"
-                  style={{ width: "100%", justifyContent: "center" }}
-                  download
-                >
-                  <Download size={16} /> Download Complete Festival Calendar (.ICS)
-                </a>
+
+                <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                  <button
+                    type="button"
+                    onClick={handleCopyFeed}
+                    className="btn-secondary btn-sm"
+                    style={{ flex: 1, justifyContent: "center" }}
+                  >
+                    {copiedFeed ? (
+                      <>
+                        <Check size={14} style={{ color: "var(--accent-green)" }} /> Copied Feed Link!
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={14} /> Copy Calendar Feed Link
+                      </>
+                    )}
+                  </button>
+
+                  <a
+                    href="https://calendar.google.com/calendar/u/0/r/settings/addbyurl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary btn-sm"
+                    style={{ justifyContent: "center" }}
+                  >
+                    <ExternalLink size={14} /> Open &quot;Add from URL&quot; in Google Calendar
+                  </a>
+                </div>
               </div>
 
-              {/* Modal Tabs */}
-              <div style={{ display: "flex", gap: "6px", marginBottom: "12px", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "8px" }}>
+              {/* METHOD 3: BATCH OPEN ALL TABS IN BROWSER */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  padding: "10px 14px",
+                  background: "rgba(255, 255, 255, 0.02)",
+                  border: "1px dashed rgba(255, 255, 255, 0.12)",
+                  borderRadius: "var(--radius-sm)",
+                  marginBottom: "1.5rem",
+                }}
+              >
+                <div>
+                  <div style={{ fontSize: "0.88rem", fontWeight: 700, color: "#fff" }}>
+                    Browser Batch Opener
+                  </div>
+                  <div style={{ fontSize: "0.78rem", color: "var(--text-dim)" }}>
+                    Opens all {modalSchedules.length} Google Calendar event tabs in your browser
+                  </div>
+                </div>
                 <button
                   type="button"
-                  onClick={() => setModalTab("all")}
-                  style={{
-                    background: modalTab === "all" ? "rgba(0, 240, 255, 0.15)" : "transparent",
-                    color: modalTab === "all" ? "var(--accent-cyan)" : "var(--text-muted)",
-                    border: "none",
-                    borderRadius: "var(--radius-sm)",
-                    padding: "6px 12px",
-                    fontSize: "0.85rem",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                  }}
+                  onClick={handleOpenAllTabs}
+                  className="btn-secondary btn-sm"
+                  style={{ fontSize: "0.8rem", whiteSpace: "nowrap" }}
                 >
-                  All Events ({unifiedTimeline.length})
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setModalTab("competitions")}
-                  style={{
-                    background: modalTab === "competitions" ? "rgba(0, 240, 255, 0.15)" : "transparent",
-                    color: modalTab === "competitions" ? "var(--accent-cyan)" : "var(--text-muted)",
-                    border: "none",
-                    borderRadius: "var(--radius-sm)",
-                    padding: "6px 12px",
-                    fontSize: "0.85rem",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                  }}
-                >
-                  My Competitions ({registeredSchedules.length})
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setModalTab("common")}
-                  style={{
-                    background: modalTab === "common" ? "rgba(0, 240, 255, 0.15)" : "transparent",
-                    color: modalTab === "common" ? "var(--accent-cyan)" : "var(--text-muted)",
-                    border: "none",
-                    borderRadius: "var(--radius-sm)",
-                    padding: "6px 12px",
-                    fontSize: "0.85rem",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                  }}
-                >
-                  Ceremonies & Meals ({commonSchedules.length})
+                  Open {modalSchedules.length} Tabs
                 </button>
               </div>
 
-              {/* Individual 1-Click Links */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px", maxHeight: "300px", overflowY: "auto", paddingRight: "4px" }}>
-                {modalSchedules.map((sch) => {
-                  const isRegistered = registeredScheduleIds.has(sch.id);
-                  const url = generateGoogleCalendarUrl({
-                    eventName: sch.event_name,
-                    subRound: sch.sub_round,
-                    date: sch.date,
-                    startTime: sch.start_time,
-                    endTime: sch.end_time,
-                    venue: sch.venue,
-                    description: sch.description,
-                  });
-                  return (
-                    <div
-                      key={sch.id}
+              {/* OPTIONAL: INDIVIDUAL 1-BY-1 LIST */}
+              <div style={{ borderTop: "1px solid rgba(255, 255, 255, 0.1)", paddingTop: "1.25rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+                  <div style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--text-dim)", textTransform: "uppercase" }}>
+                    Or Add Specific Events Individually:
+                  </div>
+
+                  {/* Filter tabs inside modal */}
+                  <div style={{ display: "flex", gap: "4px" }}>
+                    <button
+                      type="button"
+                      onClick={() => setModalTab("all")}
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        padding: "10px 14px",
-                        background: "rgba(3, 7, 18, 0.7)",
+                        background: modalTab === "all" ? "rgba(0, 240, 255, 0.15)" : "transparent",
+                        color: modalTab === "all" ? "var(--accent-cyan)" : "var(--text-dim)",
+                        border: "none",
                         borderRadius: "var(--radius-sm)",
-                        border: isRegistered ? "1px solid rgba(0, 240, 255, 0.3)" : "1px solid var(--border-dim)",
+                        padding: "3px 8px",
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        cursor: "pointer",
                       }}
                     >
-                      <div>
-                        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                          <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "#fff" }}>
-                            {sch.event_name} {sch.sub_round && `(${sch.sub_round})`}
-                          </span>
-                          {isRegistered ? (
-                            <span style={{ fontSize: "0.72rem", color: "var(--accent-cyan)", background: "rgba(0,240,255,0.12)", padding: "1px 6px", borderRadius: "4px" }}>
-                              Registered
-                            </span>
-                          ) : (
-                            <span style={{ fontSize: "0.72rem", color: "#c084fc", background: "rgba(192,132,252,0.12)", padding: "1px 6px", borderRadius: "4px" }}>
-                              Common
-                            </span>
-                          )}
-                        </div>
-                        <div style={{ fontSize: "0.8rem", color: "var(--text-dim)", marginTop: "2px" }}>
-                          Day {sch.day} &bull; {sch.time_range} &bull; {sch.venue}
-                        </div>
-                      </div>
+                      All ({unifiedTimeline.length})
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setModalTab("competitions")}
+                      style={{
+                        background: modalTab === "competitions" ? "rgba(0, 240, 255, 0.15)" : "transparent",
+                        color: modalTab === "competitions" ? "var(--accent-cyan)" : "var(--text-dim)",
+                        border: "none",
+                        borderRadius: "var(--radius-sm)",
+                        padding: "3px 8px",
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        cursor: "pointer",
+                      }}
+                    >
+                      Competitions ({registeredSchedules.length})
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setModalTab("common")}
+                      style={{
+                        background: modalTab === "common" ? "rgba(0, 240, 255, 0.15)" : "transparent",
+                        color: modalTab === "common" ? "var(--accent-cyan)" : "var(--text-dim)",
+                        border: "none",
+                        borderRadius: "var(--radius-sm)",
+                        padding: "3px 8px",
+                        fontSize: "0.75rem",
+                        fontWeight: 700,
+                        cursor: "pointer",
+                      }}
+                    >
+                      Common ({commonSchedules.length})
+                    </button>
+                  </div>
+                </div>
 
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-cal btn-sm"
-                        style={{ whiteSpace: "nowrap" }}
+                <div style={{ display: "flex", flexDirection: "column", gap: "8px", maxHeight: "220px", overflowY: "auto", paddingRight: "4px" }}>
+                  {modalSchedules.map((sch) => {
+                    const isRegistered = registeredScheduleIds.has(sch.id);
+                    const url = generateGoogleCalendarUrl({
+                      eventName: sch.event_name,
+                      subRound: sch.sub_round,
+                      date: sch.date,
+                      startTime: sch.start_time,
+                      endTime: sch.end_time,
+                      venue: sch.venue,
+                      description: sch.description,
+                    });
+                    return (
+                      <div
+                        key={sch.id}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          padding: "8px 12px",
+                          background: "rgba(3, 7, 18, 0.6)",
+                          borderRadius: "var(--radius-sm)",
+                          border: isRegistered ? "1px solid rgba(0, 240, 255, 0.25)" : "1px solid var(--border-dim)",
+                        }}
                       >
-                        <Calendar size={13} /> + Add
-                      </a>
-                    </div>
-                  );
-                })}
+                        <div>
+                          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                            <span style={{ fontWeight: 700, fontSize: "0.9rem", color: "#fff" }}>
+                              {sch.event_name} {sch.sub_round && `(${sch.sub_round})`}
+                            </span>
+                            {isRegistered ? (
+                              <span style={{ fontSize: "0.7rem", color: "var(--accent-cyan)", background: "rgba(0,240,255,0.12)", padding: "1px 5px", borderRadius: "3px" }}>
+                                Registered
+                              </span>
+                            ) : (
+                              <span style={{ fontSize: "0.7rem", color: "#c084fc", background: "rgba(192,132,252,0.12)", padding: "1px 5px", borderRadius: "3px" }}>
+                                Common
+                              </span>
+                            )}
+                          </div>
+                          <div style={{ fontSize: "0.78rem", color: "var(--text-dim)", marginTop: "2px" }}>
+                            Day {sch.day} &bull; {sch.time_range} &bull; {sch.venue}
+                          </div>
+                        </div>
+
+                        <a
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-cal btn-sm"
+                          style={{ whiteSpace: "nowrap", padding: "4px 8px", fontSize: "0.78rem" }}
+                        >
+                          <Calendar size={12} /> + Add
+                        </a>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
-              <div style={{ marginTop: "1.75rem", textAlign: "right" }}>
+              <div style={{ marginTop: "1.5rem", textAlign: "right" }}>
                 <button
                   type="button"
                   className="btn-secondary btn-sm"
