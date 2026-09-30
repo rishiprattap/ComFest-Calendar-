@@ -1,0 +1,1256 @@
+{
+  "school": "Delhi Public School Barra, Kanpur",
+  "participants": [
+    {
+      "id": "part_1",
+      "name": "Aditya Verma",
+      "email": "aaditya1256vermaa@gmail.com",
+      "phone": "7318005633",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_2",
+      "name": "Saksham Mishra",
+      "email": "sakshammishra1709@gmail.com",
+      "phone": "9214237813",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_3",
+      "name": "Dhruv Jha",
+      "email": "ragnijha26@gmail.com",
+      "phone": "6350549309",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_4",
+      "name": "Naman Yadav",
+      "email": "ny536872@gmail.com",
+      "phone": "7905350222",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_5",
+      "name": "Rishi Pratap Singh",
+      "email": "rishilive62@gmail.com",
+      "phone": "8840915401",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_6",
+      "name": "Soham Chawla",
+      "email": "mahiachawla007@gmail.com",
+      "phone": "96167 80780",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_7",
+      "name": "Ayushi Verma",
+      "email": "shreeayushiji789@gmail.com",
+      "phone": "9455038776",
+      "class": "XI",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_8",
+      "name": "Kanishka Chanpuriya",
+      "email": "kanishkachanpuriya46@gmail.com",
+      "phone": "8707615088",
+      "class": "XI",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_9",
+      "name": "Gauri Singh",
+      "email": "davishxsaitama@gmail.com",
+      "phone": "8810961479",
+      "class": "XI",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_10",
+      "name": "Vatsalya Tripathi",
+      "email": "vatsalyatripathi70@gmail.com",
+      "phone": "8127561060",
+      "class": "XI",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_11",
+      "name": "Sambhav Yadav",
+      "email": "sambhavy788@gmail.com",
+      "phone": "9120202530",
+      "class": "XI",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_12",
+      "name": "Aatmika Sharma",
+      "email": "aatmika.pari2010@gmail.com",
+      "phone": "9407816419",
+      "class": "XI",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_13",
+      "name": "Trisha Gupta",
+      "email": "guptatrisha9760@gmail.com",
+      "phone": "9267436632",
+      "class": "XI",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_14",
+      "name": "Samaira Singh",
+      "email": "samairakangel@gmail.com",
+      "phone": "9999080925",
+      "class": "X",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": false
+    },
+    {
+      "id": "part_15",
+      "name": "Abhyank Gaur",
+      "email": "gaurreeta75@gmail.com",
+      "phone": "9555490182",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": true
+    },
+    {
+      "id": "part_16",
+      "name": "Tanmay Shah",
+      "email": "tanmayshah198@gmail.com",
+      "phone": "9336510974",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": true
+    },
+    {
+      "id": "part_17",
+      "name": "Shikhar Kapoor",
+      "email": "shikharkapoor206@gmail.com",
+      "phone": "96513 82299",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": true
+    },
+    {
+      "id": "part_18",
+      "name": "Anmol",
+      "email": "anmolrises07@gmail.com",
+      "phone": "9214787597",
+      "class": "XII",
+      "school": "Delhi Public School Barra, Kanpur",
+      "is_online": true
+    }
+  ],
+  "excel_events": [
+    {
+      "num": 1,
+      "name": "CF Broadway",
+      "category": "Flagship",
+      "participants": [
+        "Vatsalya Tripathi",
+        "Sambhav Yadav",
+        "Kanishka Chanpuriya",
+        "Ayushi Verma",
+        "Samaira Singh",
+        "Gauri Singh",
+        "Aatmika Sharma"
+      ]
+    },
+    {
+      "num": 2,
+      "name": "Junk's The Punk",
+      "category": "Flagship",
+      "participants": [
+        "Sambhav Yadav",
+        "Aditya Verma"
+      ]
+    },
+    {
+      "num": 3,
+      "name": "Robowars",
+      "category": "Flagship",
+      "participants": [
+        "Saksham Mishra",
+        "Rishi Pratap Singh"
+      ]
+    },
+    {
+      "num": 4,
+      "name": "Gambit",
+      "category": "Flagship",
+      "participants": [
+        "Saksham Mishra",
+        "Vatsalya Tripathi"
+      ]
+    },
+    {
+      "num": 5,
+      "name": "Quizart",
+      "category": "Flagship",
+      "participants": [
+        "Aditya Verma",
+        "Dhruv Jha"
+      ]
+    },
+    {
+      "num": 6,
+      "name": "Hackom",
+      "category": "Flagship",
+      "participants": [
+        "Abhyank Gaur",
+        "Tanmay Shah",
+        "Shikhar Kapoor",
+        "Anmol"
+      ]
+    },
+    {
+      "num": 7,
+      "name": "Invert Oxford",
+      "category": "Literary",
+      "participants": [
+        "Kanishka Chanpuriya"
+      ]
+    },
+    {
+      "num": 8,
+      "name": "Journaltopia",
+      "category": "Literary",
+      "participants": [
+        "Sambhav Yadav"
+      ]
+    },
+    {
+      "num": 9,
+      "name": "To Be Or Not To Be",
+      "category": "Literary",
+      "participants": [
+        "Ayushi Verma"
+      ]
+    },
+    {
+      "num": 10,
+      "name": "J-A-M ON H-A-M",
+      "category": "Literary",
+      "participants": [
+        "Kanishka Chanpuriya"
+      ]
+    },
+    {
+      "num": 11,
+      "name": "Obscura",
+      "category": "Literary",
+      "participants": [
+        "Gauri Singh"
+      ]
+    },
+    {
+      "num": 12,
+      "name": "Prima Facie",
+      "category": "Literary",
+      "participants": [
+        "Kanishka Chanpuriya"
+      ]
+    },
+    {
+      "num": 13,
+      "name": "Strings Attached",
+      "category": "Literary",
+      "participants": [
+        "Vatsalya Tripathi",
+        "Ayushi Verma",
+        "Kanishka Chanpuriya",
+        "Gauri Singh"
+      ]
+    },
+    {
+      "num": 14,
+      "name": "Crack D-Code",
+      "category": "Technical",
+      "participants": [
+        "Naman Yadav"
+      ]
+    },
+    {
+      "num": 15,
+      "name": "Wiz Pro",
+      "category": "Technical",
+      "participants": [
+        "Naman Yadav"
+      ]
+    },
+    {
+      "num": 16,
+      "name": "Pandora's Box",
+      "category": "Technical",
+      "participants": [
+        "Aditya Verma"
+      ]
+    },
+    {
+      "num": 17,
+      "name": "Draft 1.0",
+      "category": "Technical",
+      "participants": [
+        "Rishi Pratap Singh"
+      ]
+    },
+    {
+      "num": 18,
+      "name": "Athletic Arithmetic",
+      "category": "Technical",
+      "participants": [
+        "Soham Chawla"
+      ]
+    },
+    {
+      "num": 19,
+      "name": "So You Think You Can Solve",
+      "category": "Technical",
+      "participants": [
+        "Soham Chawla",
+        "Gauri Singh"
+      ]
+    },
+    {
+      "num": 20,
+      "name": "IT Quest",
+      "category": "Technical",
+      "participants": [
+        "Naman Yadav",
+        "Dhruv Jha"
+      ]
+    },
+    {
+      "num": 21,
+      "name": "Code Baton",
+      "category": "Technical",
+      "participants": [
+        "Sambhav Yadav",
+        "Rishi Pratap Singh"
+      ]
+    },
+    {
+      "num": 22,
+      "name": "Mechanoid",
+      "category": "Technical",
+      "participants": [
+        "Rishi Pratap Singh",
+        "Saksham Mishra"
+      ]
+    },
+    {
+      "num": 23,
+      "name": "The Third Front",
+      "category": "Design",
+      "participants": [
+        "Aditya Verma",
+        "Ayushi Verma",
+        "Kanishka Chanpuriya",
+        "Trisha Gupta"
+      ]
+    },
+    {
+      "num": 24,
+      "name": "Flip The Script",
+      "category": "Design",
+      "participants": [
+        "Aditya Verma",
+        "Samaira Singh",
+        "Trisha Gupta",
+        "Aatmika Sharma"
+      ]
+    },
+    {
+      "num": 25,
+      "name": "Graffiti",
+      "category": "Creative",
+      "participants": [
+        "Ayushi Verma",
+        "Vatsalya Tripathi",
+        "Gauri Singh",
+        "Kanishka Chanpuriya"
+      ]
+    },
+    {
+      "num": 26,
+      "name": "Impressions",
+      "category": "Creative",
+      "participants": [
+        "Ayushi Verma"
+      ]
+    },
+    {
+      "num": 27,
+      "name": "Picsel",
+      "category": "Photography",
+      "participants": [
+        "Samaira Singh"
+      ]
+    },
+    {
+      "num": 28,
+      "name": "Capture The Moment",
+      "category": "Photography",
+      "participants": [
+        "Samaira Singh"
+      ]
+    },
+    {
+      "num": 29,
+      "name": "Ace The Case",
+      "category": "Business",
+      "participants": [
+        "Aatmika Sharma",
+        "Vatsalya Tripathi"
+      ]
+    },
+    {
+      "num": 30,
+      "name": "M\u00e9tier Projet",
+      "category": "Business",
+      "participants": [
+        "Vatsalya Tripathi",
+        "Trisha Gupta"
+      ]
+    },
+    {
+      "num": 31,
+      "name": "Investor Incubator",
+      "category": "Business",
+      "participants": [
+        "Rishi Pratap Singh",
+        "Dhruv Jha"
+      ]
+    },
+    {
+      "num": 32,
+      "name": "Pitch Perfect",
+      "category": "Business",
+      "participants": [
+        "Vatsalya Tripathi",
+        "Trisha Gupta"
+      ]
+    },
+    {
+      "num": 33,
+      "name": "The Season Begins",
+      "category": "Gaming",
+      "participants": [
+        "Sambhav Yadav"
+      ]
+    },
+    {
+      "num": 34,
+      "name": "Blitz",
+      "category": "Gaming",
+      "participants": [
+        "Gauri Singh"
+      ]
+    }
+  ],
+  "schedule": [
+    {
+      "id": "sch_d1_01",
+      "eventName": "Registration and Breakfast",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "07:00",
+      "endTime": "08:30",
+      "timeRange": "07:00 AM \u2013 08:30 AM",
+      "venue": "Common",
+      "category": "Ceremony",
+      "description": "Participant check-in, identity badge distribution, and breakfast."
+    },
+    {
+      "id": "sch_d1_02",
+      "eventName": "Opening Ceremony",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "08:30",
+      "endTime": "10:30",
+      "timeRange": "08:30 AM \u2013 10:30 AM",
+      "venue": "Auditorium",
+      "category": "Ceremony",
+      "description": "Grand Inauguration of COMFEST'26, lighting of the lamp, keynote addresses, and opening performances."
+    },
+    {
+      "id": "sch_d1_03",
+      "eventName": "Orientation",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "10:30",
+      "endTime": "11:30",
+      "timeRange": "10:30 AM \u2013 11:30 AM",
+      "venue": "Auditorium",
+      "category": "Ceremony",
+      "description": "General briefing, usher assignments, venue layout, and event rules walk-through."
+    },
+    {
+      "id": "sch_d1_04",
+      "eventName": "Code Baton",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "11:30",
+      "endTime": "13:00",
+      "timeRange": "11:30 AM \u2013 01:00 PM",
+      "venue": "Computer Lab",
+      "category": "Technical",
+      "description": "Split-brain programming relay challenge. Strict 10-minute shift rotations and 60-second verbal briefing window."
+    },
+    {
+      "id": "sch_d1_05",
+      "eventName": "Athletic Arithmetic",
+      "subRound": "Prelims",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "11:30",
+      "endTime": "13:00",
+      "timeRange": "11:30 AM \u2013 01:00 PM",
+      "venue": "Classrooms",
+      "category": "Technical",
+      "description": "Rapid fire mathematics preliminary round. Quick-fire mental math, speed BODMAS, and pattern analysis."
+    },
+    {
+      "id": "sch_d1_06",
+      "eventName": "IT Quest",
+      "subRound": "Prelims",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "11:30",
+      "endTime": "13:00",
+      "timeRange": "11:30 AM \u2013 01:00 PM",
+      "venue": "Classrooms",
+      "category": "Technical",
+      "description": "Tech quizzing preliminary round with 30 rigorous questions on hardware, emerging tech, abbreviations, and giants."
+    },
+    {
+      "id": "sch_d1_07",
+      "eventName": "Strings Attached",
+      "subRound": "Finals",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "11:30",
+      "endTime": "13:00",
+      "timeRange": "11:30 AM \u2013 01:00 PM",
+      "venue": "Auditorium",
+      "category": "Literary",
+      "description": "Folk puppetry grand finale featuring live narration connecting traditional storytelling with modern societal themes."
+    },
+    {
+      "id": "sch_d1_08",
+      "eventName": "Lunch",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "13:00",
+      "endTime": "14:00",
+      "timeRange": "01:00 PM \u2013 02:00 PM",
+      "venue": "Common",
+      "category": "Dining",
+      "description": "Lunch break for participants, teachers, and guests."
+    },
+    {
+      "id": "sch_d1_09",
+      "eventName": "CF Broadway",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "14:00",
+      "endTime": "18:00",
+      "timeRange": "02:00 PM \u2013 06:00 PM",
+      "venue": "Auditorium",
+      "category": "Flagship",
+      "description": "Mega Theatre Event. 4-7 member theatrical performance using surprise props allotted 24 hours prior."
+    },
+    {
+      "id": "sch_d1_10",
+      "eventName": "Entertainment Evening",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "18:00",
+      "endTime": "20:00",
+      "timeRange": "06:00 PM \u2013 08:00 PM",
+      "venue": "Grounds",
+      "category": "Entertainment",
+      "description": "Star-studded musical evening and performances celebrating student talent."
+    },
+    {
+      "id": "sch_d1_11",
+      "eventName": "Dinner (Outstation Teams Only)",
+      "day": 1,
+      "date": "2026-10-15",
+      "dateFormatted": "15 October 2026",
+      "startTime": "20:00",
+      "endTime": "21:00",
+      "timeRange": "08:00 PM \u2013 09:00 PM",
+      "venue": "Common",
+      "category": "Dining",
+      "description": "Dinner provided for outstation school contingents."
+    },
+    {
+      "id": "sch_d2_01",
+      "eventName": "Breakfast",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "07:00",
+      "endTime": "08:00",
+      "timeRange": "07:00 AM \u2013 08:00 AM",
+      "venue": "Common",
+      "category": "Dining",
+      "description": "Morning breakfast for teams and faculty."
+    },
+    {
+      "id": "sch_d2_02",
+      "eventName": "M\u00e9tier Projet",
+      "subRound": "Finals",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "08:00",
+      "endTime": "10:00",
+      "timeRange": "08:00 AM \u2013 10:00 AM",
+      "venue": "Auditorium",
+      "category": "Business",
+      "description": "Business plan live presentations. Pitching startup sprint models and facing investor scrutiny."
+    },
+    {
+      "id": "sch_d2_03",
+      "eventName": "Wiz Pro",
+      "subRound": "Prelims",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "08:00",
+      "endTime": "10:00",
+      "timeRange": "08:00 AM \u2013 10:00 AM",
+      "venue": "Computer Lab",
+      "category": "Technical",
+      "description": "Competitive programming round testing algorithms, dynamic programming, and optimal data structure choices in Java/Python."
+    },
+    {
+      "id": "sch_d2_04",
+      "eventName": "Ace The Case",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "08:00",
+      "endTime": "11:00",
+      "timeRange": "08:00 AM \u2013 11:00 AM",
+      "venue": "ATL/Labs",
+      "category": "Business",
+      "description": "3-hour comprehensive business case study analysis with surprise mid-round crisis twists."
+    },
+    {
+      "id": "sch_d2_05",
+      "eventName": "Invert Oxford",
+      "subRound": "Prelims",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "08:00",
+      "endTime": "09:30",
+      "timeRange": "08:00 AM \u2013 09:30 AM",
+      "venue": "Classrooms",
+      "category": "Literary",
+      "description": "Exploratory debate based on newspaper articles provided 30 minutes prior."
+    },
+    {
+      "id": "sch_d2_06",
+      "eventName": "Prima Facie",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "09:30",
+      "endTime": "12:00",
+      "timeRange": "09:30 AM \u2013 12:00 PM",
+      "venue": "Classrooms",
+      "category": "Literary",
+      "description": "Mock courtroom legal trial debate testing jurisprudence, evidence appraisal, and cross-examination."
+    },
+    {
+      "id": "sch_d2_07",
+      "eventName": "Junk's The Punk",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "08:00",
+      "endTime": "11:00",
+      "timeRange": "08:00 AM \u2013 11:00 AM",
+      "venue": "Grounds",
+      "category": "Flagship",
+      "description": "High-octane treasure hunt across the campus grounds solving cryptic riddles and physical challenges."
+    },
+    {
+      "id": "sch_d2_08",
+      "eventName": "Hackom",
+      "subRound": "24-Hour Hackathon",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "09:00",
+      "endTime": "23:59",
+      "timeRange": "09:00 AM (16 Oct) \u2013 Ongoing",
+      "venue": "ATL/Labs",
+      "category": "Flagship",
+      "description": "24-Hour intense Hackathon kickoff. Teams develop full-stack applications solving theme challenges."
+    },
+    {
+      "id": "sch_d2_09",
+      "eventName": "The Third Front",
+      "subRound": "Prelims",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "10:00",
+      "endTime": "13:00",
+      "timeRange": "10:00 AM \u2013 01:00 PM",
+      "venue": "Computer Lab",
+      "category": "Design",
+      "description": "Graphic designing studio round creating comprehensive advertising collateral and brand identity packages."
+    },
+    {
+      "id": "sch_d2_10",
+      "eventName": "IT Quest",
+      "subRound": "Finals",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "timeRange": "11:00 AM \u2013 01:00 PM",
+      "venue": "Auditorium",
+      "category": "Technical",
+      "description": "On-stage buzzer finals with Data-Drain mechanics where correct steals siphon points from rivals."
+    },
+    {
+      "id": "sch_d2_11",
+      "eventName": "So You Think You Can Solve",
+      "subRound": "Prelims",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "timeRange": "11:00 AM \u2013 01:00 PM",
+      "venue": "Classrooms",
+      "category": "Technical",
+      "description": "SYTYCS logical reasoning and mental agility preliminary round."
+    },
+    {
+      "id": "sch_d2_12",
+      "eventName": "Mechanoid",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "timeRange": "11:00 AM \u2013 01:00 PM",
+      "venue": "Grounds",
+      "category": "Technical",
+      "description": "Autonomous line-tracking robotics speed trial through obstacles and sharp hairpin vectors."
+    },
+    {
+      "id": "sch_d2_13",
+      "eventName": "Lunch",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "13:00",
+      "endTime": "14:00",
+      "timeRange": "01:00 PM \u2013 02:00 PM",
+      "venue": "Common",
+      "category": "Dining",
+      "description": "Lunch break for participants and staff."
+    },
+    {
+      "id": "sch_d2_14",
+      "eventName": "Invert Oxford",
+      "subRound": "Finals",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "timeRange": "02:00 PM \u2013 04:00 PM",
+      "venue": "Auditorium",
+      "category": "Literary",
+      "description": "WSDC format parliamentary debate finals including the rapid Block & Tackle round."
+    },
+    {
+      "id": "sch_d2_15",
+      "eventName": "Crack D-Code",
+      "subRound": "Prelims",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "14:00",
+      "endTime": "15:30",
+      "timeRange": "02:00 PM \u2013 03:30 PM",
+      "venue": "Classrooms",
+      "category": "Technical",
+      "description": "Pen-and-paper code debugging prelims in Java and Python."
+    },
+    {
+      "id": "sch_d2_16",
+      "eventName": "Flip The Script",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "14:00",
+      "endTime": "17:00",
+      "timeRange": "02:00 PM \u2013 05:00 PM",
+      "venue": "Computer Lab",
+      "category": "Design",
+      "description": "Reinventing the visual identity and branding of Comfest (posters, merch, webpage UI) under random constraints."
+    },
+    {
+      "id": "sch_d2_17",
+      "eventName": "Robowars",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "14:00",
+      "endTime": "18:00",
+      "timeRange": "02:00 PM \u2013 06:00 PM",
+      "venue": "Grounds",
+      "category": "Flagship",
+      "description": "Combat robotics showdown. High-torque 8kg machines battling in the arena through obstacle courses and direct combat."
+    },
+    {
+      "id": "sch_d2_18",
+      "eventName": "Graffiti",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "14:00",
+      "endTime": "18:00",
+      "timeRange": "02:00 PM \u2013 06:00 PM",
+      "venue": "Grounds",
+      "category": "Creative",
+      "description": "Live mural graffiti painting on a 10ft x 10ft canvas based on the festival theme."
+    },
+    {
+      "id": "sch_d2_19",
+      "eventName": "The Season Begins",
+      "subRound": "Round 1",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "15:30",
+      "endTime": "18:00",
+      "timeRange": "03:30 PM \u2013 06:00 PM",
+      "venue": "ATL/Labs",
+      "category": "Gaming",
+      "description": "Gaming tournament Round 1. 1-vs-1 high-stakes elimination matches."
+    },
+    {
+      "id": "sch_d2_20",
+      "eventName": "Athletic Arithmetic",
+      "subRound": "Finals",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "16:00",
+      "endTime": "17:30",
+      "timeRange": "04:00 PM \u2013 05:30 PM",
+      "venue": "Auditorium",
+      "category": "Technical",
+      "description": "On-stage speed math buzzer finals with point wagering mechanics."
+    },
+    {
+      "id": "sch_d2_21",
+      "eventName": "Entertainment Evening",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "18:30",
+      "endTime": "20:00",
+      "timeRange": "06:30 PM \u2013 08:00 PM",
+      "venue": "Grounds",
+      "category": "Entertainment",
+      "description": "Cultural night, band performances, and EDM DJ set."
+    },
+    {
+      "id": "sch_d2_22",
+      "eventName": "Dinner (Outstation Teams Only)",
+      "day": 2,
+      "date": "2026-10-16",
+      "dateFormatted": "16 October 2026",
+      "startTime": "20:00",
+      "endTime": "21:00",
+      "timeRange": "08:00 PM \u2013 09:00 PM",
+      "venue": "Common",
+      "category": "Dining",
+      "description": "Dinner for outstation school contingents."
+    },
+    {
+      "id": "sch_d3_01",
+      "eventName": "Breakfast",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "07:00",
+      "endTime": "08:00",
+      "timeRange": "07:00 AM \u2013 08:00 AM",
+      "venue": "Common",
+      "category": "Dining",
+      "description": "Breakfast for attendees."
+    },
+    {
+      "id": "sch_d3_02",
+      "eventName": "Pitch Perfect",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "08:00",
+      "endTime": "10:00",
+      "timeRange": "08:00 AM \u2013 10:00 AM",
+      "venue": "Auditorium",
+      "category": "Business",
+      "description": "Selling and branding competition. 90-second dynamic sales pitches for unconventional products."
+    },
+    {
+      "id": "sch_d3_03",
+      "eventName": "Investor Incubator",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "08:00",
+      "endTime": "11:00",
+      "timeRange": "08:00 AM \u2013 11:00 AM",
+      "venue": "ATL/Labs",
+      "category": "Business",
+      "description": "Stock market trading floor simulation reacting to breaking news flashes in real time."
+    },
+    {
+      "id": "sch_d3_04",
+      "eventName": "Impressions",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "08:00",
+      "endTime": "10:00",
+      "timeRange": "08:00 AM \u2013 10:00 AM",
+      "venue": "Classrooms",
+      "category": "Creative",
+      "description": "Comfest Through Your Eyes. Charcoal and pencil sketching based on photographs clicked during the fest."
+    },
+    {
+      "id": "sch_d3_05",
+      "eventName": "Picsel + Capture The Moment",
+      "subRound": "Submissions & Review",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "08:00",
+      "endTime": "09:00",
+      "timeRange": "08:00 AM \u2013 09:00 AM",
+      "venue": "Computer Lab",
+      "category": "Photography",
+      "description": "Submission of photography portfolio and highlight video edits to judges."
+    },
+    {
+      "id": "sch_d3_06",
+      "eventName": "Hackom",
+      "subRound": "Hackathon Concludes",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "08:00",
+      "endTime": "09:00",
+      "timeRange": "08:00 AM \u2013 09:00 AM",
+      "venue": "ATL/Labs",
+      "category": "Flagship",
+      "description": "Final commit and deployment freeze for the 24-hour hackathon."
+    },
+    {
+      "id": "sch_d3_07",
+      "eventName": "Pandora's Box",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "timeRange": "09:00 AM \u2013 11:00 AM",
+      "venue": "Computer Lab",
+      "category": "Technical",
+      "description": "Surprise software challenge. 30 minutes software exploration followed by completing tasks under live patch notes."
+    },
+    {
+      "id": "sch_d3_08",
+      "eventName": "Hackom",
+      "subRound": "Presentations",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "09:00",
+      "endTime": "13:00",
+      "timeRange": "09:00 AM \u2013 01:00 PM",
+      "venue": "ATL/Labs",
+      "category": "Flagship",
+      "description": "Hackathon jury presentations. 20 minutes project demo, architecture review, and live Q&A."
+    },
+    {
+      "id": "sch_d3_09",
+      "eventName": "To Be Or Not To Be",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "10:00",
+      "endTime": "11:00",
+      "timeRange": "10:00 AM \u2013 11:00 AM",
+      "venue": "Auditorium",
+      "category": "Literary",
+      "description": "Dramatic monologue acting with dynamic host emotional switches on the fly."
+    },
+    {
+      "id": "sch_d3_10",
+      "eventName": "Obscura",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "timeRange": "10:00 AM \u2013 12:00 PM",
+      "venue": "Classrooms",
+      "category": "Literary",
+      "description": "Black-out poetry crafting using marker blackout on printed literature excerpts."
+    },
+    {
+      "id": "sch_d3_11",
+      "eventName": "The Season Begins",
+      "subRound": "Round 2",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "10:00",
+      "endTime": "12:30",
+      "timeRange": "10:00 AM \u2013 12:30 PM",
+      "venue": "ATL/Labs",
+      "category": "Gaming",
+      "description": "Gaming tournament Round 2. 2-vs-2 team tactical battles."
+    },
+    {
+      "id": "sch_d3_12",
+      "eventName": "Jam On Ham",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "timeRange": "11:00 AM \u2013 01:00 PM",
+      "venue": "Auditorium",
+      "category": "Literary",
+      "description": "Just a Minute on Half a Minute. Razor sharp extempore speaking and adversarial interruptions."
+    },
+    {
+      "id": "sch_d3_13",
+      "eventName": "Wiz Pro",
+      "subRound": "Finals",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "timeRange": "11:00 AM \u2013 01:00 PM",
+      "venue": "Computer Lab",
+      "category": "Technical",
+      "description": "Advanced algorithmic coding finals under strict time and memory benchmarks."
+    },
+    {
+      "id": "sch_d3_14",
+      "eventName": "So You Think You Can Solve",
+      "subRound": "Finals",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "timeRange": "11:00 AM \u2013 01:00 PM",
+      "venue": "Classrooms",
+      "category": "Technical",
+      "description": "Logical deduction championship solving complex mathematical models and puzzles."
+    },
+    {
+      "id": "sch_d3_15",
+      "eventName": "Lunch",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "13:00",
+      "endTime": "14:00",
+      "timeRange": "01:00 PM \u2013 02:00 PM",
+      "venue": "Common",
+      "category": "Dining",
+      "description": "Festival lunch break."
+    },
+    {
+      "id": "sch_d3_16",
+      "eventName": "Picsel",
+      "subRound": "Round 2",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "14:00",
+      "endTime": "15:00",
+      "timeRange": "02:00 PM \u2013 03:00 PM",
+      "venue": "Auditorium",
+      "category": "Photography",
+      "description": "Final photo-editing presentation and judge review of on-the-spot thematic shots."
+    },
+    {
+      "id": "sch_d3_17",
+      "eventName": "Crack D-Code",
+      "subRound": "Finals",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "timeRange": "02:00 PM \u2013 04:00 PM",
+      "venue": "Classrooms",
+      "category": "Technical",
+      "description": "Reverse engineering, code unjumbling, and optimization finals."
+    },
+    {
+      "id": "sch_d3_18",
+      "eventName": "Draft 1.0",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "14:00",
+      "endTime": "16:30",
+      "timeRange": "02:00 PM \u2013 04:30 PM",
+      "venue": "Computer Lab",
+      "category": "Technical",
+      "description": "Prompt engineering tournament across 3 stages testing AI workflow orchestration, accuracy, and creative problem solving."
+    },
+    {
+      "id": "sch_d3_19",
+      "eventName": "Gambit",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "14:00",
+      "endTime": "16:30",
+      "timeRange": "02:00 PM \u2013 04:30 PM",
+      "venue": "Grounds",
+      "category": "Flagship",
+      "description": "Event X. High stakes surprise event testing all-round mental and physical abilities disclosed on the spot."
+    },
+    {
+      "id": "sch_d3_20",
+      "eventName": "Blitz",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "14:30",
+      "endTime": "16:30",
+      "timeRange": "02:30 PM \u2013 04:30 PM",
+      "venue": "Classrooms",
+      "category": "Gaming",
+      "description": "Speed chess championship. Knockout bracket adhering to 5|0 blitz and Chess 960 rapid regulations."
+    },
+    {
+      "id": "sch_d3_21",
+      "eventName": "The Season Begins",
+      "subRound": "Round 3 Finals",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "15:30",
+      "endTime": "16:30",
+      "timeRange": "03:30 PM \u2013 04:30 PM",
+      "venue": "Auditorium",
+      "category": "Gaming",
+      "description": "Grand Finals of the esports tournament broadcast on main stage."
+    },
+    {
+      "id": "sch_d3_22",
+      "eventName": "The Third Front",
+      "subRound": "Finals",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "timeRange": "04:00 PM \u2013 05:00 PM",
+      "venue": "Classrooms",
+      "category": "Design",
+      "description": "Design presentation to judges. 5-minute brand pitch and 2-minute defense."
+    },
+    {
+      "id": "sch_d3_23",
+      "eventName": "Closing Ceremony",
+      "day": 3,
+      "date": "2026-10-17",
+      "dateFormatted": "17 October 2026",
+      "startTime": "17:00",
+      "endTime": "19:00",
+      "timeRange": "05:00 PM \u2013 07:00 PM",
+      "venue": "Auditorium",
+      "category": "Ceremony",
+      "description": "Prize distribution, crowning of the Overall Champion School, address by dignitaries, and vote of thanks."
+    }
+  ],
+  "online_events": [
+    {
+      "id": "sch_on_01",
+      "eventName": "Quizart",
+      "day": 0,
+      "date": "2026-09-24",
+      "dateFormatted": "24 Sept \u2013 14 Oct 2026",
+      "startTime": "00:00",
+      "endTime": "23:59",
+      "timeRange": "Online Cryptic Hunt",
+      "venue": "Online",
+      "category": "Flagship",
+      "description": "Online Cryptic Hunt running 24 Sept to 14 Oct 2026 on quizart.comfest.in."
+    },
+    {
+      "id": "sch_on_02",
+      "eventName": "Journaltopia",
+      "day": 0,
+      "date": "2026-09-29",
+      "dateFormatted": "29 Sept \u2013 06 Oct 2026",
+      "startTime": "00:00",
+      "endTime": "23:59",
+      "timeRange": "Online Submission",
+      "venue": "Online",
+      "category": "Literary",
+      "description": "Online Investigative Report Writing. 1000-word essay submitted by 6th October 2026."
+    }
+  ]
+}

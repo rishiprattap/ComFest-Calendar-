@@ -1,0 +1,33 @@
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+
+# Local Database
+data/comfest26.db*
+data/test.db*
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel
