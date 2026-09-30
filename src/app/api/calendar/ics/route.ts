@@ -33,6 +33,24 @@ export async function GET(request: NextRequest) {
           eventsToExport.push(...ev.schedule);
         }
       }
+
+      // Include common events (Opening Ceremony, Lunch, Closing Ceremony, etc.)
+      const includeCommon = searchParams.get("includeCommon");
+      if (includeCommon !== "false" && lookup.commonEvents) {
+        const existingIds = new Set(eventsToExport.map((e) => e.id));
+        for (const commonItem of lookup.commonEvents) {
+          if (!existingIds.has(commonItem.id)) {
+            eventsToExport.push(commonItem);
+          }
+        }
+      }
+
+      // Sort chronologically by day and start_time
+      eventsToExport.sort((a, b) => {
+        if (a.day !== b.day) return a.day - b.day;
+        return a.start_time.localeCompare(b.start_time);
+      });
+
       const safeName = lookup.participant?.name.toLowerCase().replace(/[^a-z0-9]/g, "-") || "my-events";
       filename = `comfest26-${safeName}.ics`;
     } else {

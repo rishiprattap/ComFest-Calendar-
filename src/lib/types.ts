@@ -74,6 +74,7 @@ export interface ParticipantLookupResult {
     deviceAllowance?: string;
     schedule: EventScheduleItem[];
   }[];
+  commonEvents?: EventScheduleItem[];
   candidates?: {
     id: string;
     name: string;

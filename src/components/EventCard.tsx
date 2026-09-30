@@ -8,9 +8,10 @@ import { Calendar, Clock, MapPin, Tag, Download } from "lucide-react";
 interface EventCardProps {
   item: EventScheduleItem;
   showDayBadge?: boolean;
+  participantBadge?: "registered" | "common";
 }
 
-export default function EventCard({ item, showDayBadge = true }: EventCardProps) {
+export default function EventCard({ item, showDayBadge = true, participantBadge }: EventCardProps) {
   const gcalUrl = generateGoogleCalendarUrl({
     eventName: item.event_name,
     subRound: item.sub_round,
@@ -38,6 +39,8 @@ export default function EventCard({ item, showDayBadge = true }: EventCardProps)
   else if (cat.includes("business")) catBadge = "badge-business";
   else if (cat.includes("design")) catBadge = "badge-design";
   else if (cat.includes("gaming")) catBadge = "badge-gaming";
+  else if (cat.includes("ceremony")) catBadge = "badge-flagship";
+  else if (cat.includes("entertainment")) catBadge = "badge-literary";
 
   return (
     <div className={`glass-card event-card ${venueClass}`} id={`event-card-${item.id}`}>
@@ -50,6 +53,16 @@ export default function EventCard({ item, showDayBadge = true }: EventCardProps)
             )}
           </div>
           <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", justifyContent: "flex-end" }}>
+            {participantBadge === "registered" && (
+              <span className="badge" style={{ background: "rgba(0, 240, 255, 0.18)", color: "var(--accent-cyan)", border: "1px solid rgba(0, 240, 255, 0.5)", fontWeight: 700 }}>
+                ⭐ My Event
+              </span>
+            )}
+            {participantBadge === "common" && (
+              <span className="badge" style={{ background: "rgba(168, 85, 247, 0.18)", color: "#c084fc", border: "1px solid rgba(168, 85, 247, 0.5)", fontWeight: 700 }}>
+                🌟 Common
+              </span>
+            )}
             {showDayBadge && (
               <span className="badge badge-general" style={{ background: "rgba(255,255,255,0.06)" }}>
                 {item.day === 0 ? "Online" : `Day ${item.day}`}

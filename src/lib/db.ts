@@ -491,6 +491,33 @@ export async function lookupParticipantEvents(
     });
   }
 
+  // Fetch common festival events (Ceremonies, Dining/Meals, Entertainment) attended by all delegates
+  const commonRes = await db.execute(`
+    SELECT * FROM event_schedules 
+    WHERE category IN ('Ceremony', 'Dining', 'Entertainment')
+       OR LOWER(event_name) LIKE '%ceremony%' 
+       OR LOWER(event_name) LIKE '%lunch%' 
+       OR LOWER(event_name) LIKE '%breakfast%'
+       OR LOWER(event_name) LIKE '%orientation%'
+    ORDER BY day ASC, start_time ASC
+  `);
+
+  const commonEvents: EventScheduleItem[] = commonRes.rows.map((s) => ({
+    id: String(s.id),
+    event_id: s.event_id ? String(s.event_id) : undefined,
+    event_name: String(s.event_name),
+    sub_round: s.sub_round ? String(s.sub_round) : undefined,
+    day: Number(s.day),
+    date: String(s.date),
+    date_formatted: String(s.date_formatted),
+    start_time: String(s.start_time),
+    end_time: String(s.end_time),
+    time_range: String(s.time_range),
+    venue: String(s.venue),
+    category: String(s.category),
+    description: s.description ? String(s.description) : undefined,
+  }));
+
   return {
     status: "found",
     participant: {
@@ -500,7 +527,38 @@ export async function lookupParticipantEvents(
       school: String(selectedParticipant.school),
     },
     events: registeredEvents,
+    commonEvents: commonEvents,
   };
+}
+
+/**
+ * Returns all official common festival events (Ceremonies, Meals, Socials)
+ */
+export async function getCommonFestivalEvents(): Promise<EventScheduleItem[]> {
+  await ensureDbInitialized();
+  const db = getDbClient();
+  const commonRes = await db.execute(`
+    SELECT * FROM event_schedules 
+    WHERE category IN ('Ceremony', 'Dining', 'Entertainment', 'Common')
+       OR event_id IS NULL
+    ORDER BY day ASC, start_time ASC
+  `);
+
+  return commonRes.rows.map((s) => ({
+    id: String(s.id),
+    event_id: s.event_id ? String(s.event_id) : undefined,
+    event_name: String(s.event_name),
+    sub_round: s.sub_round ? String(s.sub_round) : undefined,
+    day: Number(s.day),
+    date: String(s.date),
+    date_formatted: String(s.date_formatted),
+    start_time: String(s.start_time),
+    end_time: String(s.end_time),
+    time_range: String(s.time_range),
+    venue: String(s.venue),
+    category: String(s.category),
+    description: s.description ? String(s.description) : undefined,
+  }));
 }
 
 function maskEmail(email: string): string {
